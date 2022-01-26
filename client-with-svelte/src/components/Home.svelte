@@ -3,7 +3,11 @@
   let searchTerm = "";
 
   function search() {
-    alert(`I'm looking for ${searchTerm}`);
+    if (!searchTerm){
+      alert('Enter a search term first.')
+    }else{
+      alert(`I'm looking for ${searchTerm}`);
+    }
     
   }
 
