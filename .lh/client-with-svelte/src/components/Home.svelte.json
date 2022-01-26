@@ -1,0 +1,26 @@
+{
+    "sourceFile": "client-with-svelte/src/components/Home.svelte",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1643200954423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643201658582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,13 @@\n   export let name;\r\n   let searchTerm = \"\";\r\n \r\n   function search() {\r\n-    alert(`I'm looking for ${searchTerm}`);\r\n+    if (!searchTerm){\r\n+      alert('You have to enter a searchterm first')\r\n+    } else {\r\n+      alert(`I'm looking for ${searchTerm}`);\r\n+    }\r\n   }\r\n </script>\r\n \r\n <h1>Hello {name}!</h1>\r\n"
+                },
+                {
+                    "date": 1643201682525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   let searchTerm = \"\";\r\n \r\n   function search() {\r\n     if (!searchTerm){\r\n-      alert('You have to enter a searchterm first')\r\n+      alert('You have to enter a search term first')\r\n     } else {\r\n       alert(`I'm looking for ${searchTerm}`);\r\n     }\r\n   }\r\n"
+                }
+            ],
+            "date": 1643200954423,
+            "name": "Commit-0",
+            "content": "<script>\r\n  export let name;\r\n  let searchTerm = \"\";\r\n\r\n  function search() {\r\n    alert(`I'm looking for ${searchTerm}`);\r\n  }\r\n</script>\r\n\r\n<h1>Hello {name}!</h1>\r\n<p>Which plant are you looking for?</p>\r\n\r\n<!-- svelte-ignore a11y-autofocus -->\r\n<input bind:value={searchTerm} placeholder=\"start typing...\" autofocus />\r\n\r\n<button on:click={search}> Go </button>\r\n<link\r\n  href=\"https://fonts.googleapis.com/css?family=Overpass:100,400\"\r\n  rel=\"stylesheet\"\r\n/>\r\n\r\n<style>\r\n  h1 {\r\n    color: #0d750d;\r\n    text-transform: uppercase;\r\n    font-size: 4em;\r\n    font-weight: 100;\r\n  }\r\n</style>\r\n"
+        }
+    ]
+}
