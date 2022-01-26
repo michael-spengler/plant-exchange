@@ -21,7 +21,7 @@
 
 <style>
   h1 {
-    color: #ff3e00;
+    color: #0d750d;
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 100;
