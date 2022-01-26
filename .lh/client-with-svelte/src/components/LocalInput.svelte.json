@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client-with-svelte/src/components/LocalInput.svelte",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1643210463508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643211424572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         title = e.target.value;\r\n     }\r\n \r\n \r\n-    const submitMovie = () => {\r\n+    const submitPlant = () => {\r\n         if (title) {\r\n         dispatch('submitPlant', {\r\n             plant: {title}\r\n         });\r\n@@ -26,9 +26,9 @@\n       value={title}\r\n       on:keyup={onTitleChange}\r\n     />\r\n \r\n-    <button on:click={submitMovie} disabled={!title}>Submit</button>\r\n+    <button on:click={submitPlant} disabled={!title}>Submit</button>\r\n </div>\r\n \r\n <style>\r\n     input {\r\n"
+                }
+            ],
+            "date": 1643210463508,
+            "name": "Commit-0",
+            "content": "<script>\r\n    import { createEventDispatcher } from 'svelte';\r\n    const dispatch = createEventDispatcher();\r\n\r\n    let title ='';\r\n\r\n    const onTitleChange = e => {\r\n        title = e.target.value;\r\n    }\r\n\r\n\r\n    const submitMovie = () => {\r\n        if (title) {\r\n        dispatch('submitPlant', {\r\n            plant: {title}\r\n        });\r\n        title = '';\r\n        }\r\n    }\r\n</script>\r\n\r\n<div class='main'>\r\n    <input \r\n      placeholder=\"Plant\" \r\n      type='text' \r\n      value={title}\r\n      on:keyup={onTitleChange}\r\n    />\r\n\r\n    <button on:click={submitMovie} disabled={!title}>Submit</button>\r\n</div>\r\n\r\n<style>\r\n    input {\r\n        width: 30%;\r\n    }\r\n</style>"
+        }
+    ]
+}

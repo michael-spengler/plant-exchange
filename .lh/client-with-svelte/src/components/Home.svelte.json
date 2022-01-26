@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 22,
             "patches": [
                 {
                     "date": 1643200954423,
@@ -44,6 +44,58 @@
                 {
                     "date": 1643207061283,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,12 @@\n   function incrementCount() {\r\n     count += 1;\r\n   }\r\n   const data = `{\r\n-  \"name\" : \"Alex\",\r\n-  \"age\" : 20,\r\n-  \"grade\" : \"A\"\r\n-}`;\r\n+    \"name\" : \"Alex\",\r\n+    \"age\" : 20,\r\n+    \"grade\" : \"A\"\r\n+  }`;\r\n \r\n   let json = JSON.parse(data);\r\n   console.log(json);\r\n   //console.log(`Name: ${json.name}, Age: ${json.age}, Grade: ${json.grade}`);\r\n"
+                },
+                {
+                    "date": 1643209446908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n <script>\r\n   import Search from \"./Search.svelte\";\r\n+  import Input from \"./Input.svelte\";\r\n \r\n   export let name;\r\n   \r\n \r\n@@ -26,8 +27,10 @@\n <p>Which plant are you looking for?</p>\r\n \r\n <Search/>\r\n \r\n+<p>Or add a new Plant</p>\r\n+<Input/>\r\n \r\n <style>\r\n   h1 {\r\n     color: #0F5132;\r\n"
+                },
+                {
+                    "date": 1643210273636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n <script>\r\n   import Search from \"./Search.svelte\";\r\n   import Input from \"./Input.svelte\";\r\n+  import List from \"./List.svelte\";\r\n \r\n   export let name;\r\n   \r\n \r\n"
+                },
+                {
+                    "date": 1643210286277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n <h3>Name: {json.name}, Age: {json.age}, Grade: {json.grade}</h3>\r\n <p>Which plant are you looking for?</p>\r\n \r\n <Search/>\r\n-\r\n+<List/>\r\n <p>Or add a new Plant</p>\r\n <Input/>\r\n \r\n <style>\r\n"
+                },
+                {
+                    "date": 1643210384130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <script>\r\n   import Search from \"./Search.svelte\";\r\n-  import Input from \"./Input.svelte\";\r\n-  import List from \"./List.svelte\";\r\n+  import Input from \"./LocalInput.svelte\";\r\n+  import List from \"./LocalList.svelte\";\r\n \r\n   export let name;\r\n   \r\n \r\n"
+                },
+                {
+                    "date": 1643210516596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,23 +5,8 @@\n \r\n   export let name;\r\n   \r\n \r\n-  \r\n-  let count = 0;\r\n-\r\n-  function incrementCount() {\r\n-    count += 1;\r\n-  }\r\n-  const data = `{\r\n-    \"name\" : \"Alex\",\r\n-    \"age\" : 20,\r\n-    \"grade\" : \"A\"\r\n-  }`;\r\n-\r\n-  let json = JSON.parse(data);\r\n-  console.log(json);\r\n-  //console.log(`Name: ${json.name}, Age: ${json.age}, Grade: ${json.grade}`);\r\n </script>\r\n \r\n <h1>Hello {name}!</h1>\r\n <h3>Name: {json.name}, Age: {json.age}, Grade: {json.grade}</h3>\r\n"
+                },
+                {
+                    "date": 1643210526939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n \r\n </script>\r\n \r\n <h1>Hello {name}!</h1>\r\n-<h3>Name: {json.name}, Age: {json.age}, Grade: {json.grade}</h3>\r\n <p>Which plant are you looking for?</p>\r\n \r\n <Search/>\r\n <List/>\r\n"
+                },
+                {
+                    "date": 1643210869696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,8 @@\n   import Input from \"./LocalInput.svelte\";\r\n   import List from \"./LocalList.svelte\";\r\n \r\n   export let name;\r\n-  \r\n-\r\n </script>\r\n \r\n <h1>Hello {name}!</h1>\r\n <p>Which plant are you looking for?</p>\r\n"
+                },
+                {
+                    "date": 1643210989453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n <h1>Hello {name}!</h1>\r\n <p>Which plant are you looking for?</p>\r\n \r\n <Search/>\r\n-<List/>\r\n+<!-- <List/> -->\r\n <p>Or add a new Plant</p>\r\n <Input/>\r\n \r\n <style>\r\n"
+                },
+                {
+                    "date": 1643211180250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,34 @@\n   import Input from \"./LocalInput.svelte\";\r\n   import List from \"./LocalList.svelte\";\r\n \r\n   export let name;\r\n+\r\n+  let plants = localStorage.getItem('plants') ? \r\n+\t  JSON.parse(localStorage.getItem('plants')) : \r\n+\t  [];\r\n+\r\n+\tconst submitMovie = plant => {\r\n+\t  const updatedPlants = [ ...plants, plant ];\r\n+\t  localStorage.setItem('plants', JSON.stringify(updatedPlants));\r\n+\t  plants = updatedPlants;\r\n+\t}\r\n+\r\n+\tconst clearSearch = () => {\r\n+\t  movies = localStorage.getItem('movies') ? \r\n+\t\tJSON.parse(localStorage.getItem('movies')) : \r\n+\t\t[];\r\n+\t};\r\n+\r\n+\tconst search = searchTerm => {\r\n+\t  const tempMovies = localStorage.getItem('movies') ? \r\n+\t\tJSON.parse(localStorage.getItem('movies')) : \r\n+\t\t[];\r\n+   \r\n+\t  movies = tempMovies.filter(m => \r\n+\t\tm.title.toLowerCase().includes(searchTerm.toLowerCase()));\r\n+\t};\r\n+\r\n </script>\r\n \r\n <h1>Hello {name}!</h1>\r\n <p>Which plant are you looking for?</p>\r\n"
+                },
+                {
+                    "date": 1643211312594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,19 +15,19 @@\n \t  plants = updatedPlants;\r\n \t}\r\n \r\n \tconst clearSearch = () => {\r\n-\t  movies = localStorage.getItem('movies') ? \r\n-\t\tJSON.parse(localStorage.getItem('movies')) : \r\n+\t  plants = localStorage.getItem('plants') ? \r\n+\t\tJSON.parse(localStorage.getItem('plants')) : \r\n \t\t[];\r\n \t};\r\n \r\n \tconst search = searchTerm => {\r\n-\t  const tempMovies = localStorage.getItem('movies') ? \r\n-\t\tJSON.parse(localStorage.getItem('movies')) : \r\n+\t  const tempPlants = localStorage.getItem('plants') ? \r\n+\t\tJSON.parse(localStorage.getItem('plants')) : \r\n \t\t[];\r\n    \r\n-\t  movies = tempMovies.filter(m => \r\n+\t  plants = tempPlants.filter(m => \r\n \t\tm.title.toLowerCase().includes(searchTerm.toLowerCase()));\r\n \t};\r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1643211333609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n <h1>Hello {name}!</h1>\r\n <p>Which plant are you looking for?</p>\r\n \r\n <Search/>\r\n-<!-- <List/> -->\r\n+<List/>\r\n <p>Or add a new Plant</p>\r\n <Input/>\r\n \r\n <style>\r\n"
+                },
+                {
+                    "date": 1643211341083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n <h1>Hello {name}!</h1>\r\n <p>Which plant are you looking for?</p>\r\n \r\n <Search/>\r\n-<List/>\r\n+<!-- <List/> -->\r\n <p>Or add a new Plant</p>\r\n <Input/>\r\n \r\n <style>\r\n"
+                },
+                {
+                    "date": 1643211884381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,6 +46,5 @@\n     text-transform: uppercase;\r\n     font-size: 4em;\r\n     font-weight: 100;\r\n   }\r\n-\r\n </style>\r\n"
                 }
             ],
             "date": 1643200954423,

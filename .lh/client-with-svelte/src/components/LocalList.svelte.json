@@ -1,0 +1,26 @@
+{
+    "sourceFile": "client-with-svelte/src/components/LocalList.svelte",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1643210412897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643210419415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,11 @@\n       <h3>{plants.title}</h3>\r\n     </div>\r\n   {/each}\r\n   \r\n-  <style>\r\n-    div {\r\n-      text-align: left;\r\n-      padding-bottom: 10px;\r\n-      border-bottom: 1px solid black;\r\n-    }\r\n-  </style>\n\\ No newline at end of file\n+<style>\r\n+  div {\r\n+    text-align: left;\r\n+    padding-bottom: 10px;\r\n+    border-bottom: 1px solid black;\r\n+  }\r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643211364720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n <script>\r\n     export let plants;\r\n-  </script>\r\n+</script>\r\n   \r\n-  {#each plants as plants (plants.title)}\r\n-    <div>\r\n-      <h3>{plants.title}</h3>\r\n-    </div>\r\n-  {/each}\r\n+{#each plants as plants (plants.title)}\r\n+  <div>\r\n+    <h3>{plants.title}</h3>\r\n+  </div>\r\n+{/each}\r\n   \r\n <style>\r\n   div {\r\n     text-align: left;\r\n"
+                }
+            ],
+            "date": 1643210412897,
+            "name": "Commit-0",
+            "content": "<script>\r\n    export let plants;\r\n  </script>\r\n  \r\n  {#each plants as plants (plants.title)}\r\n    <div>\r\n      <h3>{plants.title}</h3>\r\n    </div>\r\n  {/each}\r\n  \r\n  <style>\r\n    div {\r\n      text-align: left;\r\n      padding-bottom: 10px;\r\n      border-bottom: 1px solid black;\r\n    }\r\n  </style>"
+        }
+    ]
+}

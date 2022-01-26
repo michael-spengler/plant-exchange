@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 25,
             "patches": [
                 {
                     "date": 1643206605936,
@@ -48,6 +48,66 @@
                 {
                     "date": 1643206946595,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     placeholder=\"start typing...\"\r\n     autofocus\r\n />\r\n \r\n-<button on:click={search}> Go </button>\r\n+<button on:click={searchPopup}> Go </button>\r\n <link\r\n   href=\"https://fonts.googleapis.com/css?family=Overpass:100,400\"\r\n   rel=\"stylesheet\"\r\n />\r\n"
+                },
+                {
+                    "date": 1643209632553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,13 +34,10 @@\n     autofocus\r\n />\r\n \r\n <button on:click={searchPopup}> Go </button>\r\n-<link\r\n-  href=\"https://fonts.googleapis.com/css?family=Overpass:100,400\"\r\n-  rel=\"stylesheet\"\r\n-/>\r\n \r\n+\r\n <style>\r\n     input {\r\n         width: 30%;\r\n     }\r\n"
+                },
+                {
+                    "date": 1643209728347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,8 @@\n />\r\n \r\n <button on:click={searchPopup}> Go </button>\r\n \r\n-\r\n <style>\r\n     input {\r\n         width: 30%;\r\n     }\r\n"
+                },
+                {
+                    "date": 1643210311370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,26 +4,26 @@\n \r\n     let searchTerm = '';\r\n \r\n \r\n-    // const search = event => {\r\n-    //     searchTerm = event.target.value;\r\n+    const search = event => {\r\n+        searchTerm = event.target.value;\r\n         \r\n-    //     if (searchTerm) {\r\n-    //     dispatch('search', {\r\n-    //         searchTerm,\r\n-    //     });\r\n-    //     } else {\r\n-    //     dispatch('clearSearch', {});\r\n-    //     }\r\n+        if (searchTerm) {\r\n+        dispatch('search', {\r\n+            searchTerm,\r\n+        });\r\n+        } else {\r\n+        dispatch('clearSearch', {});\r\n+        }\r\n+    }\r\n+\r\n+    // function searchPopup() {\r\n+    // if (!searchTerm){\r\n+    //   alert('Enter a search term first.')\r\n+    // }else{\r\n+    //   alert(`I'm looking for ${searchTerm}`);\r\n     // }\r\n-\r\n-    function searchPopup() {\r\n-    if (!searchTerm){\r\n-      alert('Enter a search term first.')\r\n-    }else{\r\n-      alert(`I'm looking for ${searchTerm}`);\r\n-    }\r\n     \r\n   }\r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1643210542412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <script>\r\n-    import { createEventDispatcher } from 'svelte';\r\n+    // import { createEventDispatcher } from 'svelte';\r\n     const dispatch = createEventDispatcher();\r\n \r\n     let searchTerm = '';\r\n \r\n"
+                },
+                {
+                    "date": 1643210554566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <script>\r\n-    // import { createEventDispatcher } from 'svelte';\r\n+    import { createEventDispatcher } from 'svelte';\r\n     const dispatch = createEventDispatcher();\r\n \r\n     let searchTerm = '';\r\n \r\n"
+                },
+                {
+                    "date": 1643210585107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,8 @@\n     // }else{\r\n     //   alert(`I'm looking for ${searchTerm}`);\r\n     // }\r\n     \r\n-  }\r\n </script>\r\n \r\n <!-- svelte-ignore a11y-autofocus -->\r\n <input \r\n"
+                },
+                {
+                    "date": 1643210604441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     placeholder=\"start typing...\"\r\n     autofocus\r\n />\r\n \r\n-<button on:click={searchPopup}> Go </button>\r\n+<button on:click={search}> Go </button>\r\n \r\n <style>\r\n     input {\r\n         width: 30%;\r\n"
+                },
+                {
+                    "date": 1643210678036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,14 +16,15 @@\n         dispatch('clearSearch', {});\r\n         }\r\n     }\r\n \r\n-    // function searchPopup() {\r\n-    // if (!searchTerm){\r\n-    //   alert('Enter a search term first.')\r\n-    // }else{\r\n-    //   alert(`I'm looking for ${searchTerm}`);\r\n-    // }\r\n+    function searchPopup() {\r\n+        if (!searchTerm){\r\n+            alert('Enter a search term first.')\r\n+        }else{\r\n+            alert(`I'm looking for ${searchTerm}`);\r\n+        }\r\n+    }\r\n     \r\n </script>\r\n \r\n <!-- svelte-ignore a11y-autofocus -->\r\n"
+                },
+                {
+                    "date": 1643210695450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     placeholder=\"start typing...\"\r\n     autofocus\r\n />\r\n \r\n-<button on:click={search}> Go </button>\r\n+<button on:click={searchPopup}> Go </button>\r\n \r\n <style>\r\n     input {\r\n         width: 30%;\r\n"
+                },
+                {
+                    "date": 1643211468481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     placeholder=\"start typing...\"\r\n     autofocus\r\n />\r\n \r\n-<button on:click={searchPopup}> Go </button>\r\n+<button on:click={search}> Go </button>\r\n \r\n <style>\r\n     input {\r\n         width: 30%;\r\n"
+                },
+                {
+                    "date": 1643211479121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,8 @@\n     import { createEventDispatcher } from 'svelte';\r\n     const dispatch = createEventDispatcher();\r\n \r\n     let searchTerm = '';\r\n-\r\n-\r\n     const search = event => {\r\n         searchTerm = event.target.value;\r\n         \r\n         if (searchTerm) {\r\n"
+                },
+                {
+                    "date": 1643211610125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n         if (searchTerm) {\r\n         dispatch('search', {\r\n             searchTerm,\r\n         });\r\n-        } else {\r\n-        dispatch('clearSearch', {});\r\n-        }\r\n+        // } else {\r\n+        // dispatch('clearSearch', {});\r\n+        // }\r\n     }\r\n \r\n     function searchPopup() {\r\n         if (!searchTerm){\r\n"
+                },
+                {
+                    "date": 1643211631708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         if (searchTerm) {\r\n         dispatch('search', {\r\n             searchTerm,\r\n         });\r\n-        // } else {\r\n+        } // else {\r\n         // dispatch('clearSearch', {});\r\n         // }\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1643211985718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,17 +3,21 @@\n     const dispatch = createEventDispatcher();\r\n \r\n     let searchTerm = '';\r\n     const search = event => {\r\n-        searchTerm = event.target.value;\r\n-        \r\n-        if (searchTerm) {\r\n-        dispatch('search', {\r\n-            searchTerm,\r\n-        });\r\n-        } // else {\r\n-        // dispatch('clearSearch', {});\r\n-        // }\r\n+        if (!searchTerm){\r\n+            alert('Enter a search term first.')\r\n+        }else{\r\n+            searchTerm = event.target.value;\r\n+            \r\n+            if (searchTerm) {\r\n+            dispatch('search', {\r\n+                searchTerm,\r\n+            });\r\n+            } // else {\r\n+            // dispatch('clearSearch', {});\r\n+            // }\r\n+        }\r\n     }\r\n \r\n     function searchPopup() {\r\n         if (!searchTerm){\r\n"
+                },
+                {
+                    "date": 1643212001438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,15 +18,15 @@\n             // }\r\n         }\r\n     }\r\n \r\n-    function searchPopup() {\r\n-        if (!searchTerm){\r\n-            alert('Enter a search term first.')\r\n-        }else{\r\n-            alert(`I'm looking for ${searchTerm}`);\r\n-        }\r\n-    }\r\n+    // function searchPopup() {\r\n+    //     if (!searchTerm){\r\n+    //         alert('Enter a search term first.')\r\n+    //     }else{\r\n+    //         alert(`I'm looking for ${searchTerm}`);\r\n+    //     }\r\n+    // }\r\n     \r\n </script>\r\n \r\n <!-- svelte-ignore a11y-autofocus -->\r\n"
                 }
             ],
             "date": 1643206605936,

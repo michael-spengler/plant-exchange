@@ -3,28 +3,30 @@
     const dispatch = createEventDispatcher();
 
     let searchTerm = '';
+    const search = event => {
+        if (!searchTerm){
+            alert('Enter a search term first.')
+        }else{
+            searchTerm = event.target.value;
+            
+            if (searchTerm) {
+            dispatch('search', {
+                searchTerm,
+            });
+            } // else {
+            // dispatch('clearSearch', {});
+            // }
+        }
+    }
 
-
-    // const search = event => {
-    //     searchTerm = event.target.value;
-        
-    //     if (searchTerm) {
-    //     dispatch('search', {
-    //         searchTerm,
-    //     });
-    //     } else {
-    //     dispatch('clearSearch', {});
+    // function searchPopup() {
+    //     if (!searchTerm){
+    //         alert('Enter a search term first.')
+    //     }else{
+    //         alert(`I'm looking for ${searchTerm}`);
     //     }
     // }
-
-    function searchPopup() {
-    if (!searchTerm){
-      alert('Enter a search term first.')
-    }else{
-      alert(`I'm looking for ${searchTerm}`);
-    }
     
-  }
 </script>
 
 <!-- svelte-ignore a11y-autofocus -->
@@ -34,11 +36,7 @@
     autofocus
 />
 
-<button on:click={searchPopup}> Go </button>
-<link
-  href="https://fonts.googleapis.com/css?family=Overpass:100,400"
-  rel="stylesheet"
-/>
+<button on:click={search}> Go </button>
 
 <style>
     input {

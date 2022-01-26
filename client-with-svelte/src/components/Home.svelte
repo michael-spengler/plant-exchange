@@ -1,32 +1,44 @@
 <script>
   import Search from "./Search.svelte";
+  import Input from "./LocalInput.svelte";
+  import List from "./LocalList.svelte";
 
   export let name;
-  
 
-  
-  let count = 0;
+  let plants = localStorage.getItem('plants') ? 
+	  JSON.parse(localStorage.getItem('plants')) : 
+	  [];
 
-  function incrementCount() {
-    count += 1;
-  }
-  const data = `{
-    "name" : "Alex",
-    "age" : 20,
-    "grade" : "A"
-  }`;
+	const submitMovie = plant => {
+	  const updatedPlants = [ ...plants, plant ];
+	  localStorage.setItem('plants', JSON.stringify(updatedPlants));
+	  plants = updatedPlants;
+	}
 
-  let json = JSON.parse(data);
-  console.log(json);
-  //console.log(`Name: ${json.name}, Age: ${json.age}, Grade: ${json.grade}`);
+	const clearSearch = () => {
+	  plants = localStorage.getItem('plants') ? 
+		JSON.parse(localStorage.getItem('plants')) : 
+		[];
+	};
+
+	const search = searchTerm => {
+	  const tempPlants = localStorage.getItem('plants') ? 
+		JSON.parse(localStorage.getItem('plants')) : 
+		[];
+   
+	  plants = tempPlants.filter(m => 
+		m.title.toLowerCase().includes(searchTerm.toLowerCase()));
+	};
+
 </script>
 
 <h1>Hello {name}!</h1>
-<h3>Name: {json.name}, Age: {json.age}, Grade: {json.grade}</h3>
 <p>Which plant are you looking for?</p>
 
 <Search/>
-
+<!-- <List/> -->
+<p>Or add a new Plant</p>
+<Input/>
 
 <style>
   h1 {
@@ -35,5 +47,4 @@
     font-size: 4em;
     font-weight: 100;
   }
-
 </style>

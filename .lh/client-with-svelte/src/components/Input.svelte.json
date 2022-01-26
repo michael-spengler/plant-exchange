@@ -1,0 +1,42 @@
+{
+    "sourceFile": "client-with-svelte/src/components/Input.svelte",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1643209318114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643209327306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n     import { createEventDispatcher } from 'svelte';\r\n     const dispatch = createEventDispatcher();\r\n \r\n     let title ='';\r\n-    let rating = 1;\r\n \r\n     const onTitleChange = e => {\r\n         title = e.target.value;\r\n     }\r\n"
+                },
+                {
+                    "date": 1643209394190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,21 +7,25 @@\n     const onTitleChange = e => {\r\n         title = e.target.value;\r\n     }\r\n \r\n-    const onRatingSelect = e => {\r\n-        rating = e.target.value;\r\n-    }\r\n \r\n     const submitMovie = () => {\r\n         if (title) {\r\n         dispatch('submitMovie', {\r\n-            movie: {\r\n-            title,\r\n-            rating,\r\n-            }\r\n+            movie: {title}\r\n         });\r\n         title = '';\r\n-        rating = 1;\r\n         }\r\n     }\r\n\\ No newline at end of file\n-</script>\n+</script>\r\n+\r\n+<div class='main'>\r\n+    <input \r\n+      placeholder=\"Plant\" \r\n+      type='text' \r\n+      value={title}\r\n+      on:keyup={onTitleChange}\r\n+    />\r\n+\r\n+    <button on:click={submitMovie} disabled={!title}>Submit</button>\r\n+</div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643209408503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \r\n \r\n     const submitMovie = () => {\r\n         if (title) {\r\n-        dispatch('submitMovie', {\r\n+        dispatch('submitPlant', {\r\n             movie: {title}\r\n         });\r\n         title = '';\r\n         }\r\n"
+                },
+                {
+                    "date": 1643209474467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,5 +27,11 @@\n       on:keyup={onTitleChange}\r\n     />\r\n \r\n     <button on:click={submitMovie} disabled={!title}>Submit</button>\r\n-</div>\n\\ No newline at end of file\n+</div>\r\n+\r\n+<style>\r\n+    input {\r\n+        width: 30%;\r\n+    }\r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643209492217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,7 +31,7 @@\n </div>\r\n \r\n <style>\r\n     input {\r\n-        width: 30%;\r\n+        width: 25%;\r\n     }\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643209522890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,7 +31,7 @@\n </div>\r\n \r\n <style>\r\n     input {\r\n-        width: 25%;\r\n+        width: 30%;\r\n     }\r\n </style>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1643209318114,
+            "name": "Commit-0",
+            "content": "<script>\r\n    import { createEventDispatcher } from 'svelte';\r\n    const dispatch = createEventDispatcher();\r\n\r\n    let title ='';\r\n    let rating = 1;\r\n\r\n    const onTitleChange = e => {\r\n        title = e.target.value;\r\n    }\r\n\r\n    const onRatingSelect = e => {\r\n        rating = e.target.value;\r\n    }\r\n\r\n    const submitMovie = () => {\r\n        if (title) {\r\n        dispatch('submitMovie', {\r\n            movie: {\r\n            title,\r\n            rating,\r\n            }\r\n        });\r\n        title = '';\r\n        rating = 1;\r\n        }\r\n    }\r\n</script>"
+        }
+    ]
+}
