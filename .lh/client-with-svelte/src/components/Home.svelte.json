@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1643200954423,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643201658582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,13 @@\n   export let name;\r\n   let searchTerm = \"\";\r\n \r\n   function search() {\r\n-    alert(`I'm looking for ${searchTerm}`);\r\n+    if (!searchTerm){\r\n+      alert('You have to enter a searchterm first')\r\n+    } else {\r\n+      alert(`I'm looking for ${searchTerm}`);\r\n+    }\r\n   }\r\n </script>\r\n \r\n <h1>Hello {name}!</h1>\r\n"
+                },
+                {
+                    "date": 1643201682525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   let searchTerm = \"\";\r\n \r\n   function search() {\r\n     if (!searchTerm){\r\n-      alert('You have to enter a searchterm first')\r\n+      alert('You have to enter a search term first')\r\n     } else {\r\n       alert(`I'm looking for ${searchTerm}`);\r\n     }\r\n   }\r\n"
                 }
             ],
             "date": 1643200954423,
