@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1643210463508,
@@ -28,6 +28,10 @@
                 {
                     "date": 1643212991256,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,12 +12,12 @@\n     const onRatingSelect = e => {\r\n         rating = e.target.value;\r\n     }\r\n \r\n-    const submitplant = () => {\r\n+    const submitPlant = () => {\r\n         if (title) {\r\n-        dispatch('submitplant', {\r\n-            plant: {\r\n+        dispatch('submitPlant', {\r\n+            Plant: {\r\n             title,\r\n             rating,\r\n             }\r\n         });\r\n@@ -28,9 +28,9 @@\n </script>\r\n \r\n <div class='main'>\r\n     <input \r\n-      placeholder=\"plant Title\" \r\n+      placeholder=\"Plant Title\" \r\n       type='text' \r\n       value={title}\r\n       on:keyup={onTitleChange}\r\n     />\r\n@@ -42,9 +42,9 @@\n       <option value={4}>4</option>\r\n       <option value={5}>5</option>\r\n     </select>\r\n   \r\n-    <button on:click={submitplant} disabled={!title}>Submit</button>\r\n+    <button on:click={submitPlant} disabled={!title}>Submit</button>\r\n   </div>\r\n   \r\n   <style>\r\n     .main {\r\n"
+                },
+                {
+                    "date": 1643213472099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,28 +2,28 @@\n     import { createEventDispatcher } from 'svelte';\r\n     const dispatch = createEventDispatcher();\r\n \r\n     let title ='';\r\n-    let rating = 1;\r\n+    // let rating = 1;\r\n \r\n     const onTitleChange = e => {\r\n         title = e.target.value;\r\n     }\r\n \r\n-    const onRatingSelect = e => {\r\n-        rating = e.target.value;\r\n-    }\r\n+    // const onRatingSelect = e => {\r\n+    //     rating = e.target.value;\r\n+    // }\r\n \r\n     const submitPlant = () => {\r\n         if (title) {\r\n         dispatch('submitPlant', {\r\n             Plant: {\r\n             title,\r\n-            rating,\r\n+            // rating,\r\n             }\r\n         });\r\n         title = '';\r\n-        rating = 1;\r\n+        // rating = 1;\r\n         }\r\n     }\r\n </script>\r\n \r\n@@ -34,15 +34,15 @@\n       value={title}\r\n       on:keyup={onTitleChange}\r\n     />\r\n   \r\n-    <select value={rating} on:change={onRatingSelect}>\r\n+    <!-- <select value={rating} on:change={onRatingSelect}>\r\n       <option value={1}>1</option>\r\n       <option value={2}>2</option>\r\n       <option value={3}>3</option>\r\n       <option value={4}>4</option>\r\n       <option value={5}>5</option>\r\n-    </select>\r\n+    </select> -->\r\n   \r\n     <button on:click={submitPlant} disabled={!title}>Submit</button>\r\n   </div>\r\n   \r\n"
                 }
             ],
             "date": 1643210463508,

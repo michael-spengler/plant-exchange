@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1643210412897,
@@ -28,6 +28,10 @@
                 {
                     "date": 1643212779555,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n <script>\r\n-    export let plants;\r\n+  export let plants;\r\n </script>\r\n-  \r\n+\r\n {#each plants as plant (plant.title)}\r\n   <div>\r\n     <h3>{plant.title}</h3>\r\n+    <p>Your Rating: {plant.rating}</p>\r\n   </div>\r\n {/each}\r\n-  \r\n+\r\n <style>\r\n   div {\r\n     text-align: left;\r\n     padding-bottom: 10px;\r\n"
+                },
+                {
+                    "date": 1643213477210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n {#each plants as plant (plant.title)}\r\n   <div>\r\n     <h3>{plant.title}</h3>\r\n-    <p>Your Rating: {plant.rating}</p>\r\n+    <!-- <p>Your Rating: {plant.rating}</p> -->\r\n   </div>\r\n {/each}\r\n \r\n <style>\r\n"
                 }
             ],
             "date": 1643210412897,

@@ -5,7 +5,7 @@
 {#each plants as plant (plant.title)}
   <div>
     <h3>{plant.title}</h3>
-    <p>Your Rating: {plant.rating}</p>
+    <!-- <p>Your Rating: {plant.rating}</p> -->
   </div>
 {/each}
 

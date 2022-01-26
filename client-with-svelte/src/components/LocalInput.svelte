@@ -3,26 +3,26 @@
     const dispatch = createEventDispatcher();
 
     let title ='';
-    let rating = 1;
+    // let rating = 1;
 
     const onTitleChange = e => {
         title = e.target.value;
     }
 
-    const onRatingSelect = e => {
-        rating = e.target.value;
-    }
+    // const onRatingSelect = e => {
+    //     rating = e.target.value;
+    // }
 
     const submitPlant = () => {
         if (title) {
         dispatch('submitPlant', {
             Plant: {
             title,
-            rating,
+            // rating,
             }
         });
         title = '';
-        rating = 1;
+        // rating = 1;
         }
     }
 </script>
@@ -35,13 +35,13 @@
       on:keyup={onTitleChange}
     />
   
-    <select value={rating} on:change={onRatingSelect}>
+    <!-- <select value={rating} on:change={onRatingSelect}>
       <option value={1}>1</option>
       <option value={2}>2</option>
       <option value={3}>3</option>
       <option value={4}>4</option>
       <option value={5}>5</option>
-    </select>
+    </select> -->
   
     <button on:click={submitPlant} disabled={!title}>Submit</button>
   </div>

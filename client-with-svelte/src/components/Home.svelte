@@ -30,7 +30,7 @@
   </script>
   
   <div class='main'>
-	<h1>Plant Journal</h1>
+	<h1>Plant Exchange</h1>
   
 	<Search on:search={event => search(event.detail.searchTerm)} on:clearSearch={clearSearch} />
 	<LocalInput on:submitPlant={event => submitPlant(event.detail.plant)} />

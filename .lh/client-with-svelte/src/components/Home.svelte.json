@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 31,
+            "activePatchIndex": 32,
             "patches": [
                 {
                     "date": 1643200954423,
@@ -132,6 +132,10 @@
                 {
                     "date": 1643213152217,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <script>\r\n-\timport PlantInput from './PlantInput.svelte';\r\n-\timport PlantList from './PlantList.svelte';\r\n+\timport LocalInput from './LocalInput.svelte';\r\n+  import LocalList from './LocalList.svelte';\r\n \timport Search from './Search.svelte';\r\n \r\n \tlet plants = localStorage.getItem('plants') ? \r\n \t  JSON.parse(localStorage.getItem('plants')) : \r\n@@ -32,10 +32,10 @@\n   <div class='main'>\r\n \t<h1>Plant Journal</h1>\r\n   \r\n \t<Search on:search={event => search(event.detail.searchTerm)} on:clearSearch={clearSearch} />\r\n-\t<PlantInput on:submitPlant={event => submitPlant(event.detail.plant)} />\r\n-\t<PlantList plants={plants} />\r\n+\t<LocalInput on:submitPlant={event => submitPlant(event.detail.plant)} />\r\n+\t<LocalList plants={plants} />\r\n   </div>\r\n   \r\n   <style>\r\n \t  .main {\r\n"
+                },
+                {
+                    "date": 1643213356902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \t};\r\n   </script>\r\n   \r\n   <div class='main'>\r\n-\t<h1>Plant Journal</h1>\r\n+\t<h1>Plant Exchange</h1>\r\n   \r\n \t<Search on:search={event => search(event.detail.searchTerm)} on:clearSearch={clearSearch} />\r\n \t<LocalInput on:submitPlant={event => submitPlant(event.detail.plant)} />\r\n \t<LocalList plants={plants} />\r\n"
                 }
             ],
             "date": 1643200954423,
