@@ -11,14 +11,14 @@
     count += 1;
   }
   const data = `{
-  "name" : "Alex",
-  "age" : 20,
-  "grade" : "A"
-}`;
+    "name" : "Alex",
+    "age" : 20,
+    "grade" : "A"
+  }`;
 
-let json = JSON.parse(data);
-console.log(json);
-//console.log(`Name: ${json.name}, Age: ${json.age}, Grade: ${json.grade}`);
+  let json = JSON.parse(data);
+  console.log(json);
+  //console.log(`Name: ${json.name}, Age: ${json.age}, Grade: ${json.grade}`);
 </script>
 
 <h1>Hello {name}!</h1>
