@@ -10,9 +10,19 @@
   function incrementCount() {
     count += 1;
   }
+  const data = `{
+  "name" : "Alex",
+  "age" : 20,
+  "grade" : "A"
+}`;
+
+let json = JSON.parse(data);
+console.log(json);
+//console.log(`Name: ${json.name}, Age: ${json.age}, Grade: ${json.grade}`);
 </script>
 
 <h1>Hello {name}!</h1>
+<h3>Name: {json.name}, Age: {json.age}, Grade: {json.grade}</h3>
 <p>Which plant are you looking for?</p>
 
 <Search/>
@@ -25,9 +35,5 @@
     font-size: 4em;
     font-weight: 100;
   }
-  p {
-    color: purple;
-		font-family: 'Comic Sans MS', cursive;
-		font-size: 2em;
-  }
+
 </style>
