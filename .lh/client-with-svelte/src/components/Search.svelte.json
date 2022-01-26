@@ -1,0 +1,58 @@
+{
+    "sourceFile": "client-with-svelte/src/components/Search.svelte",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1643206605936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643206617737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,13 @@\n     }\r\n </script>\r\n \r\n <!-- svelte-ignore a11y-autofocus -->\r\n-<input bind:value={searchTerm} placeholder=\"start typing...\" autofocus />\r\n+<input \r\n+    bind:value={searchTerm}\r\n+    placeholder=\"start typing...\"\r\n+    autofocus\r\n+/>\r\n \r\n <style>\r\n     input {\r\n         width: 100%;\r\n"
+                },
+                {
+                    "date": 1643206671023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     placeholder=\"start typing...\"\r\n     autofocus\r\n />\r\n \r\n-<style>\r\n+<!-- <style>\r\n     input {\r\n         width: 100%;\r\n     }\r\n\\ No newline at end of file\n-</style>\n+</style> -->\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643206678824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     placeholder=\"start typing...\"\r\n     autofocus\r\n />\r\n \r\n-<!-- <style>\r\n+<style>\r\n     input {\r\n-        width: 100%;\r\n+        width: 40%;\r\n\\ No newline at end of file\n     }\r\n-</style> -->\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643206685094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,7 +24,7 @@\n />\r\n \r\n <style>\r\n     input {\r\n-        width: 40%;\r\n+        width: 30%;\r\n     }\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643206835190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,14 @@\n     placeholder=\"start typing...\"\r\n     autofocus\r\n />\r\n \r\n+<button on:click={search}> Go </button>\r\n+<link\r\n+  href=\"https://fonts.googleapis.com/css?family=Overpass:100,400\"\r\n+  rel=\"stylesheet\"\r\n+/>\r\n+\r\n <style>\r\n     input {\r\n         width: 30%;\r\n     }\r\n"
+                },
+                {
+                    "date": 1643206854753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,17 @@\n         } else {\r\n         dispatch('clearSearch', {});\r\n         }\r\n     }\r\n+\r\n+    function search() {\r\n+    if (!searchTerm){\r\n+      alert('Enter a search term first.')\r\n+    }else{\r\n+      alert(`I'm looking for ${searchTerm}`);\r\n+    }\r\n+    \r\n+  }\r\n </script>\r\n \r\n <!-- svelte-ignore a11y-autofocus -->\r\n <input \r\n"
+                },
+                {
+                    "date": 1643206862377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         dispatch('clearSearch', {});\r\n         }\r\n     }\r\n \r\n-    function search() {\r\n+    function searchPopup() {\r\n     if (!searchTerm){\r\n       alert('Enter a search term first.')\r\n     }else{\r\n       alert(`I'm looking for ${searchTerm}`);\r\n"
+                },
+                {
+                    "date": 1643206891691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n     import { createEventDispatcher } from 'svelte';\r\n     const dispatch = createEventDispatcher();\r\n \r\n     let searchTerm = '';\r\n+\r\n+    \r\n     const search = event => {\r\n         searchTerm = event.target.value;\r\n         \r\n         if (searchTerm) {\r\n"
+                },
+                {
+                    "date": 1643206932399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,20 +3,20 @@\n     const dispatch = createEventDispatcher();\r\n \r\n     let searchTerm = '';\r\n \r\n-    \r\n-    const search = event => {\r\n-        searchTerm = event.target.value;\r\n+\r\n+    // const search = event => {\r\n+    //     searchTerm = event.target.value;\r\n         \r\n-        if (searchTerm) {\r\n-        dispatch('search', {\r\n-            searchTerm,\r\n-        });\r\n-        } else {\r\n-        dispatch('clearSearch', {});\r\n-        }\r\n-    }\r\n+    //     if (searchTerm) {\r\n+    //     dispatch('search', {\r\n+    //         searchTerm,\r\n+    //     });\r\n+    //     } else {\r\n+    //     dispatch('clearSearch', {});\r\n+    //     }\r\n+    // }\r\n \r\n     function searchPopup() {\r\n     if (!searchTerm){\r\n       alert('Enter a search term first.')\r\n"
+                },
+                {
+                    "date": 1643206946595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     placeholder=\"start typing...\"\r\n     autofocus\r\n />\r\n \r\n-<button on:click={search}> Go </button>\r\n+<button on:click={searchPopup}> Go </button>\r\n <link\r\n   href=\"https://fonts.googleapis.com/css?family=Overpass:100,400\"\r\n   rel=\"stylesheet\"\r\n />\r\n"
+                }
+            ],
+            "date": 1643206605936,
+            "name": "Commit-0",
+            "content": "<script>\r\n    import { createEventDispatcher } from 'svelte';\r\n    const dispatch = createEventDispatcher();\r\n\r\n    let searchTerm = '';\r\n    const search = event => {\r\n        searchTerm = event.target.value;\r\n        \r\n        if (searchTerm) {\r\n        dispatch('search', {\r\n            searchTerm,\r\n        });\r\n        } else {\r\n        dispatch('clearSearch', {});\r\n        }\r\n    }\r\n</script>\r\n\r\n<!-- svelte-ignore a11y-autofocus -->\r\n<input bind:value={searchTerm} placeholder=\"start typing...\" autofocus />\r\n\r\n<style>\r\n    input {\r\n        width: 100%;\r\n    }\r\n</style>"
+        }
+    ]
+}

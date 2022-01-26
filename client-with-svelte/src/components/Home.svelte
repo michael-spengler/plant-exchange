@@ -1,17 +1,10 @@
 <script>
+  import Search from "./Search.svelte";
+
   export let name;
-  let searchTerm = "";
+  
 
-  function search() {
-    if (!searchTerm){
-      alert('Enter a search term first.')
-    }else{
-      alert(`I'm looking for ${searchTerm}`);
-    }
-    
-  }
-
-
+  
   let count = 0;
 
   function incrementCount() {
@@ -22,20 +15,7 @@
 <h1>Hello {name}!</h1>
 <p>Which plant are you looking for?</p>
 
-<!-- svelte-ignore a11y-autofocus -->
-<input bind:value={searchTerm} placeholder="start typing..." autofocus />
-
-<button on:click={search}> Go </button>
-<link
-  href="https://fonts.googleapis.com/css?family=Overpass:100,400"
-  rel="stylesheet"
-/>
-
-
-<button on:click={incrementCount}>
-	Anzahl der erstellten Anzeigen {count} {count === 1 ? 'time' : 'times'}
-</button>
-
+<Search/>
 
 
 <style>

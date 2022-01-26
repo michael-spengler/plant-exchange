@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1643200954423,
@@ -20,6 +20,22 @@
                 {
                     "date": 1643203482098,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,21 @@\n   let searchTerm = \"\";\r\n \r\n   function search() {\r\n     if (!searchTerm){\r\n-      alert('You have to enter a search term first')\r\n-    } else {\r\n+      alert('Enter a search term first.')\r\n+    }else{\r\n       alert(`I'm looking for ${searchTerm}`);\r\n     }\r\n+    \r\n   }\r\n+\r\n+\r\n+  let count = 0;\r\n+\r\n+  function incrementCount() {\r\n+    count += 1;\r\n+  }\r\n </script>\r\n \r\n <h1>Hello {name}!</h1>\r\n <p>Which plant are you looking for?</p>\r\n@@ -22,12 +30,24 @@\n   href=\"https://fonts.googleapis.com/css?family=Overpass:100,400\"\r\n   rel=\"stylesheet\"\r\n />\r\n \r\n+\r\n+<button on:click={incrementCount}>\r\n+\tAnzahl der erstellten Anzeigen {count} {count === 1 ? 'time' : 'times'}\r\n+</button>\r\n+\r\n+\r\n+\r\n <style>\r\n   h1 {\r\n-    color: #0d750d;\r\n+    color: #0F5132;\r\n     text-transform: uppercase;\r\n     font-size: 4em;\r\n     font-weight: 100;\r\n   }\r\n+  p {\r\n+    color: purple;\r\n+\t\tfont-family: 'Comic Sans MS', cursive;\r\n+\t\tfont-size: 2em;\r\n+  }\r\n </style>\r\n"
+                },
+                {
+                    "date": 1643206638854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n <script>\r\n+  import Search from \"./Search.svelte\";\r\n+\r\n   export let name;\r\n   let searchTerm = \"\";\r\n \r\n   function search() {\r\n@@ -21,11 +23,10 @@\n \r\n <h1>Hello {name}!</h1>\r\n <p>Which plant are you looking for?</p>\r\n \r\n-<!-- svelte-ignore a11y-autofocus -->\r\n-<input bind:value={searchTerm} placeholder=\"start typing...\" autofocus />\r\n \r\n+\r\n <button on:click={search}> Go </button>\r\n <link\r\n   href=\"https://fonts.googleapis.com/css?family=Overpass:100,400\"\r\n   rel=\"stylesheet\"\r\n"
+                },
+                {
+                    "date": 1643206646262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,8 @@\n       alert(`I'm looking for ${searchTerm}`);\r\n     }\r\n     \r\n   }\r\n-\r\n-\r\n   let count = 0;\r\n \r\n   function incrementCount() {\r\n     count += 1;\r\n"
+                },
+                {
+                    "date": 1643206658790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,10 @@\n \r\n <h1>Hello {name}!</h1>\r\n <p>Which plant are you looking for?</p>\r\n \r\n+<Search/>\r\n \r\n-\r\n <button on:click={search}> Go </button>\r\n <link\r\n   href=\"https://fonts.googleapis.com/css?family=Overpass:100,400\"\r\n   rel=\"stylesheet\"\r\n"
+                },
+                {
+                    "date": 1643206906562,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,11 @@\n <script>\r\n   import Search from \"./Search.svelte\";\r\n \r\n   export let name;\r\n-  let searchTerm = \"\";\r\n+  \r\n \r\n-  function search() {\r\n-    if (!searchTerm){\r\n-      alert('Enter a search term first.')\r\n-    }else{\r\n-      alert(`I'm looking for ${searchTerm}`);\r\n-    }\r\n-    \r\n-  }\r\n+  \r\n   let count = 0;\r\n \r\n   function incrementCount() {\r\n     count += 1;\r\n@@ -23,21 +16,9 @@\n <p>Which plant are you looking for?</p>\r\n \r\n <Search/>\r\n \r\n-<button on:click={search}> Go </button>\r\n-<link\r\n-  href=\"https://fonts.googleapis.com/css?family=Overpass:100,400\"\r\n-  rel=\"stylesheet\"\r\n-/>\r\n \r\n-\r\n-<button on:click={incrementCount}>\r\n-\tAnzahl der erstellten Anzeigen {count} {count === 1 ? 'time' : 'times'}\r\n-</button>\r\n-\r\n-\r\n-\r\n <style>\r\n   h1 {\r\n     color: #0F5132;\r\n     text-transform: uppercase;\r\n"
                 }
             ],
             "date": 1643200954423,
