@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1643204151772,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1643204355547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   <head>\r\n     <meta charset=\"utf-8\" />\r\n     <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\r\n     <link rel=\"stylesheet\" href=\"/global.css\" />\r\n-    <link rel=\"icon\" type=\"image/png\" href=\"./favicon.png\">\r\n+    <link rel=\"icon\" type=\"image/png\" href=\"./flower.svg\">\r\n     <!-- hot reloading utils -->\r\n     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js\"></script>\r\n     <script src=\"https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js\"></script>\r\n     <title>Svelte app</title>\r\n"
+                },
+                {
+                    "date": 1643204378285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   <head>\r\n     <meta charset=\"utf-8\" />\r\n     <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\r\n     <link rel=\"stylesheet\" href=\"/global.css\" />\r\n-    <link rel=\"icon\" type=\"image/png\" href=\"./flower.svg\">\r\n+    <link rel=\"icon\" type=\"image/svg\" href=\"./flower.svg\">\r\n     <!-- hot reloading utils -->\r\n     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js\"></script>\r\n     <script src=\"https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js\"></script>\r\n     <title>Svelte app</title>\r\n"
                 }
             ],
             "date": 1643204151772,
