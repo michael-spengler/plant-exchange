@@ -1,0 +1,2 @@
+von Ordner client-with-svelte aus aufrufen, um das Frontend zu starten:
+trex run start

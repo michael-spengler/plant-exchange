@@ -2,7 +2,7 @@
   import Home from "@/components/Home.svelte";
   import { fade } from "svelte/transition";
 
-  let name = "Plant Fans";
+  let name = "Plant Fans/Anhänger";
 </script>
 
 <main transition:fade>
