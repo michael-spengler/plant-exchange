@@ -1,13 +1,14 @@
 <script>
-    export let plants;
+  export let plants;
 </script>
-  
-{#each plants as plants (plants.title)}
+
+{#each plants as plant (plant.title)}
   <div>
-    <h3>{plants.title}</h3>
+    <h3>{plant.title}</h3>
+    <p>Your Rating: {plant.rating}</p>
   </div>
 {/each}
-  
+
 <style>
   div {
     text-align: left;

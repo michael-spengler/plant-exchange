@@ -1,15 +1,13 @@
 <script>
-  import Search from "./Search.svelte";
-  import Input from "./LocalInput.svelte";
-  import List from "./LocalList.svelte";
+	import LocalInput from './LocalInput.svelte';
+  import LocalList from './LocalList.svelte';
+	import Search from './Search.svelte';
 
-  export let name;
-
-  let plants = localStorage.getItem('plants') ? 
+	let plants = localStorage.getItem('plants') ? 
 	  JSON.parse(localStorage.getItem('plants')) : 
 	  [];
 
-	const submitMovie = plant => {
+	const submitPlant = plant => {
 	  const updatedPlants = [ ...plants, plant ];
 	  localStorage.setItem('plants', JSON.stringify(updatedPlants));
 	  plants = updatedPlants;
@@ -29,22 +27,29 @@
 	  plants = tempPlants.filter(m => 
 		m.title.toLowerCase().includes(searchTerm.toLowerCase()));
 	};
+  </script>
+  
+  <div class='main'>
+	<h1>Plant Journal</h1>
+  
+	<Search on:search={event => search(event.detail.searchTerm)} on:clearSearch={clearSearch} />
+	<LocalInput on:submitPlant={event => submitPlant(event.detail.plant)} />
+	<LocalList plants={plants} />
+  </div>
+  
+  <style>
+	  .main {
+	  width: 500px;
+	  max-width: 100%;
+	  padding: 1em;
+	  margin: auto;
+	  text-align: center;
+	}
 
-</script>
-
-<h1>Hello {name}!</h1>
-<p>Which plant are you looking for?</p>
-
-<Search/>
-<!-- <List/> -->
-<p>Or add a new Plant</p>
-<Input/>
-
-<style>
-  h1 {
-    color: #0F5132;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-</style>
+	h1 {
+		color: #ff3e00;
+		text-transform: uppercase;
+		font-size: 4em;
+		font-weight: 100;
+	}
+  </style>
